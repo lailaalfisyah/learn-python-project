@@ -2,6 +2,15 @@ import os
 import CRUD
 
 if __name__ == "__main__":
+    os.system("clear")
+
+    print("="*31)
+    print("   LATIHAN PROGRAM SEDERHANA   ")
+    print(" DATABASE PERPUSTAKAAN DIGITAL ")
+    print("="*31+"\n")
+
+    CRUD.init_console()
+    
     while (True):
     # sistem_operasi = os.name
 
@@ -15,9 +24,7 @@ if __name__ == "__main__":
         print("   LATIHAN PROGRAM SEDERHANA   ")
         print(" DATABASE PERPUSTAKAAN DIGITAL ")
         print("="*31+"\n")
-
-        CRUD.init_console()
-
+        
         print(f"1. Read Data")
         print(f"2. Create Data")
         print(f"3. Update Data")
@@ -25,16 +32,12 @@ if __name__ == "__main__":
 
         user_option = input("Masukan opsi: ")
 
-        print("="*31+"\n")
-
         match user_option:
-            case "1": print("Opsi read")
-            case "2": print("Opsi create")
-            case "3": print("Opsi update")
+            case "1": CRUD.read_console()
+            case "2": CRUD.create_console()
+            case "3": CRUD.update_console()
             case "4": print("Opsi detete")
             case _: print("SALAH OPSI")
-
-        print("="*31)
 
         is_done = input("Apakah sudah selesai [Y/N]? ")
         if is_done == "Y" or is_done == "y":
