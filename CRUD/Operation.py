@@ -23,13 +23,23 @@ def create_first_data():
     except:
         print("Data gagal ditambahkan.")
 
-def read():
+def read(**kwargs):
     try:
         with open(Database.DB_NAME, "r", encoding="utf-8") as file:
             content = file.readlines()
-            return content
+            jumlah_buku = len(content)
+
+            if "index" in kwargs:
+                index = kwargs["index"]
+                if index < 0 or index > jumlah_buku:
+                    return False
+                else:
+                    return content[index]
+            else:
+                return content    
     except:
         print("Error saat membaca database.")
+        return False
 
 def create(judul:str, penulis:str, tahun:int):
     data = Database.TEMPLATE.copy()

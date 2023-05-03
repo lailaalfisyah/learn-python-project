@@ -44,4 +44,7 @@ def create_console():
     print("Data buku telah ditambahkan.")
             
 def update_console():
-    print("update console file")
+    read_console()
+    no_buku = int(input("Pilih nomor urut buku yang akan di-update: "))
+    data_buku = Operation.read(index=no_buku-1)
+    print(data_buku)
